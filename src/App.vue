@@ -1,12 +1,13 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+
 import Chat from './components/Chat.vue'
+import NavBar from './components/NavBar.vue';
 
 </script>
 
 <template>
   <div class="flex ">
-    <HelloWorld />
+    <NavBar />
     <Chat/>
   </div>
 
