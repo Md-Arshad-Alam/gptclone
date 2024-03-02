@@ -1,20 +1,54 @@
+is chat view
 <script setup>
 import { ref } from "vue";
+import NavBar from "../components/NavBar.vue";
 
 const isDropdownOpen = ref(false);
+const isOpenMenu = ref(false)
 const selectedPlan = ref();
 
 const toggleDropdown = () => {
   isDropdownOpen.value = !isDropdownOpen.value;
 };
+const openMenu = () => {
+  isOpenMenu.value = !isOpenMenu.value;
+};
 </script>
 
 <template>
-  <div class="w-full p-2 relative">
+  <div
+    class="absolute left-0 md:absolute lg:absolute xl:absolute 2xl:absolute z-50"
+  >
+    <NavBar />
+  </div>
+  <div class="w-full p-2 ml-0 relative md:ml-80 lg:ml-80 xl:ml-80 2xl:ml-80">
     <div
       class="sticky top-0 mb-1.5 flex items-center justify-between z-10 h-14 p-2 font-semibold bg-token-main-surface-primary"
     >
-      <div class="flex items-center gap-2">
+      <div class="flex items-center justify-between w-full gap-2">
+        <button
+          @click="openMenu"
+          class="block sm:block md:hidden lg:hidden xl:hidden 2xl:hidden"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M3 8C3 7.44772 3.44772 7 4 7H20C20.5523 7 21 7.44772 21 8C21 8.55228 20.5523 9 20 9H4C3.44772 9 3 8.55228 3 8ZM3 16C3 15.4477 3.44772 15 4 15H14C14.5523 15 15 15.4477 15 16C15 16.5523 14.5523 17 14 17H4C3.44772 17 3 16.5523 3 16Z"
+              fill="currentColor"
+            ></path>
+          </svg>
+        </button>
+        <div v-if="isOpenMenu" class="absolute left-0 top-0">
+          <!-- Your dropdown menu content -->
+          <NavBar />
+        </div>
         <div
           class="group flex cursor-pointer items-center gap-1 rounded-xl py-2 px-3 text-lg font-bold hover:bg-gray-100"
           @click="toggleDropdown"
@@ -37,6 +71,9 @@ const toggleDropdown = () => {
               ></path>
             </svg>
           </button>
+        </div>
+        <div>
+          <i class="fa-regular fa-pen-to-square"></i>
         </div>
         <!-- dropdown content -->
         <div
@@ -116,7 +153,7 @@ const toggleDropdown = () => {
     <!-- <div
         class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
       > -->
-    <div class="mx-auto w-[790px] ">
+    <div class="mx-auto w-full relative">
       <div class="flex items-center">
         <div
           class="w-12 h-12 flex items-center justify-center bg-white rounded-full"
@@ -126,21 +163,22 @@ const toggleDropdown = () => {
         <p class="font-bold">Arshad</p>
       </div>
       <div class="ml-12">
-        <p>
-         how to handle 
-         
-        </p>
+        <p>how to handle</p>
       </div>
       <div class="flex items-center">
         <div
           class="w-12 h-12 flex items-center justify-center bg-white rounded-full"
         >
-          <img class="w-6" src="https://static.vecteezy.com/system/resources/previews/021/059/827/non_2x/chatgpt-logo-chat-gpt-icon-on-white-background-free-vector.jpg" alt="" />
+          <img
+            class="w-6"
+            src="https://static.vecteezy.com/system/resources/previews/021/059/827/non_2x/chatgpt-logo-chat-gpt-icon-on-white-background-free-vector.jpg"
+            alt=""
+          />
         </div>
         <p class="font-bold">ChatGPT</p>
       </div>
       <div class="ml-12">
-        <p>
+        <p class="mr-2">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore autem
           impedit suscipit atque laboriosam quasi nam culpa architecto ad
           consequuntur dolore hic rem odio soluta consectetur totam quo,
@@ -194,23 +232,27 @@ const toggleDropdown = () => {
             </div>
           </div>
         </div> -->
-    </div>
-    <div class="flex absolute bottom-8 left-60 right-60 b">
-      <div class="flex-1 relative border-2 border-gray-300 p-3 rounded-xl flex">
-        <input
-          type="text"
-          class="w-full outline-none"
-          placeholder="Message ChatGPT..."
-        />
-        <div class="flex gap-2">
-          <button>➤</button>
+      <!-- <div
+        class="flex absolute top-[33.5rem] left-4 md:left-60 right-4 md:right-60"
+      >
+        <div
+          class="flex-1 relative border-2 border-gray-300 p-3 rounded-xl flex"
+        >
+          <input
+            type="text"
+            class="w-full outline-none"
+            placeholder="Message ChatGPT..."
+          />
+          <div class="flex gap-2">
+            <button>➤</button>
+          </div>
+          <div class="absolute inset-14 left-4 md:left-40 right-4 md:right-40">
+            <p class="text-xs text-center">
+              ChatGPT can make mistakes. Consider checking important information
+            </p>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="absolute bottom-2 left-40 right-40">
-      <p class="text-xs text-center">
-        ChatGPT can make mistakes. Consider checking important information
-      </p>
+      </div> -->
     </div>
   </div>
 </template>
