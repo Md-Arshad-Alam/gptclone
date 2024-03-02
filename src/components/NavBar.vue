@@ -2,7 +2,7 @@
 <script setup>
 import { ref } from "vue";
 
-const isCloseMenu = ref(true);
+const isCloseMenu = ref(false);
 const closeMenu = () => {
   isCloseMenu.value = !isCloseMenu.value;
 };
