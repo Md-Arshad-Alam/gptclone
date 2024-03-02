@@ -233,7 +233,7 @@ const openMenu = () => {
           </div>
         </div> -->
       <!-- <div
-        class="flex absolute top-[33.5rem] left-4 md:left-60 right-4 md:right-60"
+        class="flex fixed left-[50%] bottom-5 right-20 w-96 "
       >
         <div
           class="flex-1 relative border-2 border-gray-300 p-3 rounded-xl flex"
